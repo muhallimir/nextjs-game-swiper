@@ -25,7 +25,7 @@ export default function Home() {
 			display: 'flex',
 			flexDirection: 'column',
 			border: `1px solid ${darkMode ? 'var(--common-white)' : 'var(--common-black)'}`,
-			borderRadius: '10px',
+			borderRadius: '12px',
 			gap: '2px',
 			width: '100%',
 			height: '100%',
