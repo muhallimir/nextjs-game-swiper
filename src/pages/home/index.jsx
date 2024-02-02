@@ -6,16 +6,85 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import SwiperCore, { Pagination, Navigation } from 'swiper/core';
 import Theme from 'src/styles/theme';
-import GameCard from '@common/components/cards/GameCard';
 import { useSelector } from 'react-redux';
 import { Header } from '@common/components/headers';
 import { useRouter } from 'next/router';
+import { GameCard } from '@common/components/cards';
 
 SwiperCore.use([Pagination, Navigation]);
 
 export default function Home() {
 	const { games } = useSelector(({ game }) => game);
+	const { theme: mode } = useSelector(({ app }) => app);
+	const darkMode = mode === 'dark';
+
 	const router = useRouter()
+
+	const cardStyles = {
+		card: {
+			display: 'flex',
+			flexDirection: 'column',
+			border: `1px solid ${darkMode ? 'var(--common-white)' : 'var(--common-black)'}`,
+			borderRadius: '10px',
+			gap: '2px',
+			width: '100%',
+			height: '100%',
+			overflow: 'hidden',
+			position: 'relative',
+			cursor: 'pointer',
+			'&:hover, &:focus': {
+				border: `2px solid var(--primary-ast-main)`,
+			},
+			[Theme.breakpoints.down('xs')]: {
+				maxHeight: '178px',
+			},
+			[Theme.breakpoints.down('sm')]: {
+				maxHeight: '178px',
+			},
+			[Theme.breakpoints.between('md', 'lg')]: {
+				height: '198px',
+			},
+			[Theme.breakpoints.up('lg')]: {
+				height: '199px',
+			},
+			[Theme.breakpoints.up('xl')]: {
+				height: '228px',
+			},
+		},
+		cardImage: {
+			width: '100%',
+			objectFit: 'cover',
+			borderTopRightRadius: '10px',
+			borderTopLeftRadius: '10px',
+			[Theme.breakpoints.down('xs')]: {
+				minHeight: '151px',
+			},
+			[Theme.breakpoints.down('sm')]: {
+				height: '151px',
+			},
+			[Theme.breakpoints.between('md', 'lg')]: {
+				height: '198px',
+			},
+			[Theme.breakpoints.up('lg')]: {
+				height: '199px',
+			},
+			[Theme.breakpoints.up('xl')]: {
+				height: '180px',
+			},
+		},
+		title: {
+			wrapper: {
+				display: 'flex', gap: '5px', alignItems: 'center', padding: '10px'
+			},
+			text: {
+				color: darkMode ? 'common.white' : 'common.black'
+			},
+			icon: {
+				width: 24,
+				height: 24
+			}
+		},
+	}
 
 	const breakpoints = {
 		[Theme.breakpoints.values.xs]: {
@@ -94,7 +163,7 @@ export default function Home() {
 					>
 						{games?.map((gameDetails, i) => (
 							<SwiperSlide key={i}>
-								<GameCard game={gameDetails} />
+								<GameCard game={gameDetails} styles={cardStyles} />
 							</SwiperSlide>
 						))}
 					</Swiper>
