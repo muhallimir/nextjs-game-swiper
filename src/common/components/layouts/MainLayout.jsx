@@ -8,7 +8,7 @@ export default function Mainlayout({ children }) {
     const { theme: mode } = useSelector(({ app }) => app)
 
     return (
-        <Box textAlign='center' sx={{ backgroundColor: mode === 'dark' ? 'var(--common-black)' : 'common.white' }}>
+        <Box textAlign='center' sx={{ backgroundColor: mode === 'dark' ? 'common.black' : 'common.white' }}>
             <Box location={router.pathname}>
                 {children}
             </Box>

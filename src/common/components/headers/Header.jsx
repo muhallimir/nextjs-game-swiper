@@ -29,7 +29,7 @@ function Header() {
       }}
     >
       <Typography variant="h4" fontWeight="bold" color="primary">
-        SWIPER APP
+        CASINO
       </Typography>
       <Box sx={{ display: 'flex', alignItems: 'center' }}>
         <Typography variant="body2" sx={{ marginRight: '1rem', color: darkMode ? 'common.white' : 'common.black' }}>

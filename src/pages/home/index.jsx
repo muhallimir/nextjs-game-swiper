@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Box, Button } from '@mui/material';
+import { Box, Button, IconButton, Stack } from '@mui/material';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -10,6 +10,8 @@ import { useSelector } from 'react-redux';
 import { Header } from '@common/components/headers';
 import { useRouter } from 'next/router';
 import { GameCard } from '@common/components/cards';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 
 SwiperCore.use([Pagination, Navigation]);
 
@@ -187,7 +189,15 @@ export default function Home() {
 							)
 						})}
 					</Swiper>
-					<Box className="swiper-pagination" sx={{ position: 'absolute', bottom: '-10px', textAlign: 'center', width: '100%', display: 'flex', justifyContent: 'center' }} />
+					<Box className="swiper-pagination" />
+					<Stack sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'absolute', top: '-20px', width: '100%' }}>
+						<Box sx={{ position: 'absolute', left: 0, top: 0 }}>
+							<ChevronLeftIcon className="swiper-button-prev" />
+						</Box>
+						<Box sx={{ position: 'absolute', right: 0, top: 0 }}>
+							<ChevronRightIcon className="swiper-button-next" />
+						</Box>
+					</Stack>
 				</Box>
 			</Box>
 		</>
