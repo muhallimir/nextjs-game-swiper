@@ -191,12 +191,8 @@ export default function Home() {
 					</Swiper>
 					<Box className="swiper-pagination" />
 					<Stack sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'absolute', top: '-20px', width: '100%' }}>
-						<Box sx={{ position: 'absolute', left: 0, top: 0 }}>
-							<ChevronLeftIcon className="swiper-button-prev" />
-						</Box>
-						<Box sx={{ position: 'absolute', right: 0, top: 0 }}>
-							<ChevronRightIcon className="swiper-button-next" />
-						</Box>
+						<ChevronLeftIcon className="swiper-button-prev" />
+						<ChevronRightIcon className="swiper-button-next" />
 					</Stack>
 				</Box>
 			</Box>
